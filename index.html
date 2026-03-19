@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <style>
+    body {
+        background-color: lightblue;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    h1 {
+        color: navy;
+        margin-left: 20px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align: center;
+    }
+    .email-box{
+        margin-bottom: 10px;
+    }
+    .password-box{
+        margin-bottom: 10px;
+        margin-right: 30px;
+    }
+    </style>
+</head>
+<body>
+    <h1>User Login</h1>
+    <form id="form_id" method="POST" action="http://localhost:3000/login" onsubmit="return validate()">
+        <div class="email-box">
+            <label>Email:</label>
+            <input type="text" name="email" id="email"/>
+        </div>
+        <div class="password-box">
+            <label>Password:</label>
+            <input type="password" name="password" id="password"/>
+        </div>
+    <input type="submit" value="Login"/>
+    </form>
+</body>
+<script>
+    function validate(){
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        //Input Verification
+        if (email == "" || password == ""){
+            alert("Fields cannot be empty")
+            return false;
+        }
+        if (!email.includes("@")){
+            alert("Invalid email")
+            return false;
+        }
+        if (password.length < 8){
+            alert("Password must be at least 8 characters")
+            return false;
+        }
+        return true;
+    }
+</script>
+</html>
