@@ -40,6 +40,7 @@
 <script>
     function validate(){
         var email = document.getElementById("email").value;
+        sessionStorage.setItem("email", email);
         var password = document.getElementById("password").value;
 
         //Input Verification

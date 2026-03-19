@@ -25,6 +25,13 @@
 </head>
 <body>
     <h1>Login Successful!</h1>
+    <p>Hello, <span id="output"></span>!</p>
+    <script>
+        //use session storage to get user email from index.html
+        const email = sessionStorage.getItem("email");
+        document.getElementById("output").innerHTML = email;
+        sessionStorage.removeItem("email"); 
+    </script>
     <a href="http://localhost:3000">
         <button>Log Out</button>
     </a>
